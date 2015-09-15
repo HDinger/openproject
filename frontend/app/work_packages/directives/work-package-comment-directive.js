@@ -140,8 +140,7 @@ module.exports = function(
     ctrl.markActive = function() {
       EditableFieldsState.submissionPromises[ctrl.field] = {
         field: ctrl.field,
-        thePromise: ctrl.submitField,
-        order: 0
+        thePromise: ctrl.submitField
       };
       EditableFieldsState.currentField = ctrl.field;
     };

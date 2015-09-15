@@ -164,7 +164,7 @@ module.exports = function(
         EditableFieldsState.submissionPromises[$scope.fieldController.field] = {
           field: $scope.fieldController.field,
           thePromise: this.submitField,
-          order: 0
+          prepend: true,
         };
         EditableFieldsState.currentField = $scope.fieldController.field;
       };
