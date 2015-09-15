@@ -31,6 +31,7 @@ module.exports = function(
   EditableFieldsState,
   FocusHelper,
   $timeout,
+  $location,
   $q,
   ApiHelper,
   $rootScope,
@@ -68,6 +69,9 @@ module.exports = function(
         WorkPackageFieldService.submitWorkPackageChanges(
           notify,
           function() {
+            // Clears the location hash, as we're now
+            // scrolling to somewhere else
+            $location.hash(null);
             $timeout(function() {
               $element[0].scrollIntoView(false);
             });
