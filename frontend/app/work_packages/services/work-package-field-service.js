@@ -401,7 +401,11 @@ module.exports = function(
     var promises = [];
     angular.forEach(EditableFieldsState.submissionPromises, function(field) {
       var p = field.thePromise.call(this, notify);
-      field.prepend ? promises.unshift(p) : promises.push(p);
+      if (field.prepend) {
+        promises.unshift(p);
+      } else {
+        promises.push(p);
+      }
     });
 
     $q.all(promises).then(function() {
