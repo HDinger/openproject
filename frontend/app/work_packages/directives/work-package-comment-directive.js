@@ -116,7 +116,9 @@ module.exports = function(
       ctrl.markActive();
 
       if (withText) {
-        if (ctrl.writeValue.raw !== '') {
+        if (!ctrl.writeValue.raw) {
+          ctrl.writeValue.raw = '';
+        } else {
           ctrl.writeValue.raw += '\n';
         }
         ctrl.writeValue.raw += withText;
